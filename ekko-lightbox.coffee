@@ -253,6 +253,7 @@ EkkoLightbox.prototype = {
 
 	loadRemoteContent : (url) ->
 		width = @$element.data('width') || 560
+		height = @$element.data('height') || 448
 		@resize width
 
 		disableExternalCheck = @$element.data('disableExternalCheck') || false
@@ -263,7 +264,7 @@ EkkoLightbox.prototype = {
 		  		@$element.trigger('loaded.bs.modal')
 
 		else
-			@lightbox_body.html '<iframe width="'+width+'" height="'+width+'" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
+			@lightbox_body.html '<iframe width="'+width+'" height="'+height+'" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
 			@options.onContentLoaded.call(@)
 
 		@modal_arrows.css 'display', 'none' if @modal_arrows #hide the arrows when remote content

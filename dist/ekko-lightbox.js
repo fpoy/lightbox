@@ -289,8 +289,9 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
       return this;
     },
     loadRemoteContent: function(url) {
-      var disableExternalCheck, width;
+      var disableExternalCheck, height, width;
       width = this.$element.data('width') || 560;
+      height = this.$element.data('height') || 448;
       this.resize(width);
       disableExternalCheck = this.$element.data('disableExternalCheck') || false;
       if (!disableExternalCheck && !this.isExternal(url)) {
@@ -300,7 +301,7 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
           };
         })(this)));
       } else {
-        this.lightbox_body.html('<iframe width="' + width + '" height="' + width + '" src="' + url + '" frameborder="0" allowfullscreen></iframe>');
+        this.lightbox_body.html('<iframe width="' + width + '" height="' + height + '" src="' + url + '" frameborder="0" allowfullscreen></iframe>');
         this.options.onContentLoaded.call(this);
       }
       if (this.modal_arrows) {
